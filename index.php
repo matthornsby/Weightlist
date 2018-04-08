@@ -12,7 +12,7 @@
 
   <section class="list__wrapper">
     <header class="list__name">
-      <h1 id="list_name">After Aikido</h1>
+      <h1 id="list_name" iseditable>After Aikido</h1>
     </header>
 
     <ol class="list" id="list">

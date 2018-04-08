@@ -172,7 +172,7 @@ function makeEditable(element) {
 //create the list item
 function render_item(new_item) {
   return (
-    `<li class="list__item" data-start="0" data-end="100">
+    `<li class="list__item" data-start="0" data-end="100" iseditable isdeletable>
     <span class="list__item--title">` +
     new_item +
     `</span>
@@ -189,6 +189,7 @@ function render_item(new_item) {
   );
 }
 
+//manages swipe functions
 function setupSlip(list) {
   list.addEventListener(
     'slip:animateswipe',
@@ -202,34 +203,61 @@ function setupSlip(list) {
       var swipePercentage = Math.abs(e.detail.x) / $(e.target).outerWidth();
 
       //console.log(e.detail.x);
-      //swiping left to right
+      //swiping left to right to edit item
       if (e.detail.x > 0) {
         //fade out the item title
-        $(e.target)
-          .addClass('swiping-right')
-          .children('.list__item--title')
-          .css('opacity', 1 - 2 * swipePercentage);
+        if ($(e.target).is('[iseditable]')) {
+          //for list items
+          if ($(e.target).hasClass('list__item')) {
+            $(e.target)
+              .addClass('swiping-right')
+              .children('.list__item--title')
+              .css('opacity', 1 - 2 * swipePercentage);
 
-        //console.log(swipePercentage);
-        if (swipePercentage > 0.5) {
-          $(e).off('slip:animateswipe');
-          $(e.target)
-            .removeClass('swiping-right')
-            .children('.list__item--title')
-            .css('opacity', 1)
-            .each(function() {
-              makeEditable($(this));
-              $(this).select(); //doesn't seem to work
-            });
-          e.preventDefault(); //stop it from moving
+            //console.log(swipePercentage);
+            if (swipePercentage > 0.5) {
+              $(e).off('slip:animateswipe');
+              $(e.target)
+                .removeClass('swiping-right')
+                .children('.list__item--title')
+                .css('opacity', 1)
+                .each(function() {
+                  makeEditable($(this));
+                  $(this).select(); //doesn't seem to work
+                });
+              e.preventDefault(); //stop it from moving
+            }
+          }
+
+          //for header title
+          if ($(e.target).is('#list_name')) {
+            $(e.target)
+              .addClass('swiping-right')
+              .css('opacity', 1 - 2 * swipePercentage);
+
+            //console.log(swipePercentage);
+            if (swipePercentage > 0.5) {
+              $(e).off('slip:animateswipe');
+              $(e.target)
+                .removeClass('swiping-right')
+                .css('opacity', 1)
+                .each(function() {
+                  makeEditable($(this));
+                  $(this).select(); //doesn't seem to work
+                });
+              e.preventDefault(); //stop it from moving
+            }
+          }
+
+          e.preventDefault(); //keep it from moving
         }
-        e.preventDefault(); //keep it from moving
       }
 
+      //swipe right to left to delete item
       if (e.detail.x < 0) {
-        //fade out the item
+        //crunch the item
         if (swipePercentage <= 0.5) {
-          console.log(swipePercentage);
+          //console.log(swipePercentage);
           $(e.target)
             .addClass('swiping-left')
             .css('margin-top', -20 * swipePercentage + '%')
@@ -254,7 +282,7 @@ function setupSlip(list) {
     $(e.target)
       .removeClass('swiping-right')
       .css('opacity', 1)
-      .css('margin', 1)
+      //  .css('margin', 1)
       .removeClass('swiping-left')
       .children('.list__item--title')
       .css('opacity', 1);
@@ -328,6 +356,8 @@ $(function() {
   });
 
   setupSlip(document.querySelector('#list'));
+
+  //setupSlip(document.querySelector('.list__name'));
 
   list.addEventListener('slip:reorder', function(e) {
     // e.target list item reordered.
