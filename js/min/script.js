@@ -282,7 +282,7 @@ function setupSlip(list) {
     $(e.target)
       .removeClass('swiping-right')
       .css('opacity', 1)
-      //  .css('margin', 1)
+      .css('margin', 0)
       .removeClass('swiping-left')
       .children('.list__item--title')
       .css('opacity', 1);

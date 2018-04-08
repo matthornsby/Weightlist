@@ -207,6 +207,14 @@ body {
       z-index: -1;
       position: relative;
       transition: margin 0s;
+
+      box-shadow: 20rem 0 0 red;
+
+      & ~ * {
+        //fix a little outline coming from rounding
+        box-shadow: 0 0 0 1px @theme-light-list-background-default;
+        box-shadow: 0 0 0 1px var(--theme-list-background);
+      }
     }
 
     &--title {
