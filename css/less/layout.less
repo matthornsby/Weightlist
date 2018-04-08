@@ -48,10 +48,9 @@ body {
   background-color: @theme-light-background-default;
   background-color: var(--theme-background);
 
-  overflow: scroll;
   position: relative;
+  overflow: hidden;
   z-index: 2;
-  flex: 1;
 
   &__wrapper {
     max-width: 40rem;
@@ -68,7 +67,9 @@ body {
 
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    //-bottom: calc(~'3rem + 6vw');
+
+    box-sizing: border-box;
 
     &::before {
       content: '';
@@ -78,7 +79,7 @@ body {
       right: 0;
       bottom: 0;
       left: 0;
-      opacity: 0.5;
+      opacity: 0.3;
       background-color: @theme-light-background-default;
       background-color: var(--theme-background);
     }
@@ -162,6 +163,7 @@ body {
       &-reordering {
         cursor: grabbing !important;
         background-color: var(--theme-primary-color);
+        color: @white;
 
         .donut circle.donut-ring,
         .donut circle.donut-segment {
@@ -189,7 +191,7 @@ body {
 
     &--title {
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       flex: 1;
       //white-space: nowrap;
       color: @theme-light-secondary-color-default;
@@ -201,6 +203,7 @@ body {
       transition: opacity 0.5s ease-in-out;
 
       &:after {
+        //the bottom border when the text is editable
         content: '';
         display: block;
         position: absolute;
@@ -251,6 +254,8 @@ body {
     display: flex;
     justify-content: center;
     padding: 3vw 1.5vw;
+    position: relative;
+    z-index: 3;
 
     &--item {
       &-wrapper {

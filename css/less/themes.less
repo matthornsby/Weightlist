@@ -3,13 +3,13 @@
 @theme-primary-color-default: black;
 
 @theme-light-secondary-color-default: #444444;
-@theme-light-background-default: #eeeeee;
-@theme-light-list-background-default: white;
-@theme-light-title-text-default: white;
+@theme-light-background-default: @white;
+@theme-light-list-background-default: @white;
+@theme-light-title-text-default: @white;
 
 @theme-dark-secondary-color-default: rgba(255, 255, 255, 0.6);
-@theme-dark-background-default: lighten(#000000, 15%);
-@theme-light-list-background-default: lighten(#000000, 17.5%);
+@theme-dark-background-default: @black;
+@theme-dark-list-background-default: lighten(@black, 5%);
 @theme-dark-title-text-default: rgba(0, 0, 0, 0.6);
 
 :root {
@@ -26,7 +26,7 @@
   &__dark {
     --theme-secondary-color: @theme-dark-secondary-color-default;
     --theme-background: @theme-dark-background-default;
-    --theme-list-background: @theme-light-list-background-default;
+    --theme-list-background: @theme-dark-list-background-default;
     --theme-title-text: @theme-dark-title-text-default;
 
     .list {
@@ -54,5 +54,5 @@
 
   &__plum {
     --theme-primary-color: #a80067;
-  } //tangerine
+  } //plum
 }
