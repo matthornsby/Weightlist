@@ -13,46 +13,46 @@
 @theme-dark-title-text-default: rgba(0, 0, 0, 0.6);
 
 :root {
-  --theme-primary-color: @theme-primary-color-default;
+	--theme-primary-color: @theme-primary-color-default;
 
-  //light
-  --theme-secondary-color: @theme-light-secondary-color-default;
-  --theme-background: @theme-light-background-default;
-  --theme-list-background: @theme-light-list-background-default;
-  --theme-title-text: @theme-light-title-text-default;
+	//light
+	--theme-secondary-color: @theme-light-secondary-color-default;
+	--theme-background: @theme-light-background-default;
+	--theme-list-background: @theme-light-list-background-default;
+	--theme-title-text: @theme-light-title-text-default;
 }
 
 .theme {
-  &__dark {
-    --theme-secondary-color: @theme-dark-secondary-color-default;
-    --theme-background: @theme-dark-background-default;
-    --theme-list-background: @theme-dark-list-background-default;
-    --theme-title-text: @theme-dark-title-text-default;
+	&__dark {
+		--theme-secondary-color: @theme-dark-secondary-color-default;
+		--theme-background: @theme-dark-background-default;
+		--theme-list-background: @theme-dark-list-background-default;
+		--theme-title-text: @theme-dark-title-text-default;
 
-    .list {
-      &__name {
-        opacity: 0.6;
-      }
-      &__item {
-        &--chance {
-          //opacity: 0.9;
+		.list {
+			&__name {
+				opacity: 0.6;
+			}
+			&__item {
+				&--chance {
+					//opacity: 0.9;
 
-          .donut__label {
-            fill: rgba(255, 255, 255, 0.7);
-          }
-        }
-      }
-      &__utility {
-        opacity: 0.6;
-      }
-    }
-  }
+					.donut__label {
+						fill: rgba(255, 255, 255, 0.7);
+					}
+				}
+			}
+			&__utility {
+				//opacity: 0.6;
+			}
+		}
+	}
 
-  &__tangerine {
-    --theme-primary-color: #ff7800;
-  } //tangerine
+	&__tangerine {
+		--theme-primary-color: #ff7800;
+	} //tangerine
 
-  &__plum {
-    --theme-primary-color: #a80067;
-  } //plum
+	&__plum {
+		--theme-primary-color: #a80067;
+	} //plum
 }

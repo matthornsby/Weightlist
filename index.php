@@ -86,6 +86,8 @@
 
 
     </ol>
+    <ul class="list__paused" id="paused">
+    </ul>
 
       <!--
         <div id="main" class="content">
@@ -111,6 +113,7 @@
           </li>
 
         </ul>
+        <div class="list__utility--spacer"></div>
 
     </section>
 
@@ -118,7 +121,7 @@
   <!--<script src="./js/fn.sortable.min.js"></script>-->
   <script src="./js/jquery.fn.sortable.js" defer></script>
   <script src="./js/slip.js" defer></script>
-  <script src="./js/script.js"></script>
+  <script src="./js/script.js?6"></script>
 </body>
 
 </html>
