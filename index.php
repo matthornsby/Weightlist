@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weightlist: After Aikido</title>
-    <link async rel="stylesheet" href="./css/master.css">
+    <link async rel="stylesheet" href="./css/master.css?1">
 </head>
 
 <body class="theme__plum theme__dark">
@@ -86,8 +86,6 @@
 
 
     </ol>
-    <ul class="list__paused" id="paused">
-    </ul>
 
       <!--
         <div id="main" class="content">
