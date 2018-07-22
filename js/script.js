@@ -339,9 +339,6 @@ if (localStorage.getItem('Weightlist') === null) {
       { "item_name": "Yellow Brick Pizza" }
     ]
   }`;
-	//var listData = "{}";
-
-	//...
 } else {
 	var listData = `
   {"name": "After Aikido",
